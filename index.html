@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💖 Feliz Cumpleaños 💖</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+
+
+
+
+
+
+
+
+
+let intervalo;
+
+function iniciarCuentaRegresiva() {
+
+document.getElementById("countdown").classList.remove("hidden");
+
+actualizarCuenta();
+
+intervalo = setInterval(actualizarCuenta, 1000);
+
+}
+
+function actualizarCuenta() {
+
+let ahora = new Date();
+
+let objetivo = new Date();
+objetivo.setDate(ahora.getDate() + 1);
+objetivo.setHours(15, 0, 0, 0); // mañana 3:00 PM
+
+let diferencia = objetivo - ahora;
+
+if (diferencia <= 0) {
+
+clearInterval(intervalo);
+
+document.getElementById("tiempo").innerHTML =
+"🎉 ¡YA LLEGÓ LA SORPRESA! 🎉";
+
+document.getElementById("mensajeSorpresa").classList.remove("hidden");
+
+return;
+
+}
+
+let horas = Math.floor(diferencia / (1000 * 60 * 60));
+let minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+let segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+document.getElementById("tiempo").innerHTML =
+`${horas}h : ${minutos}m : ${segundos}s`;
+
+}
+
+
+
+
+
+tailwind.config = {
+theme:{
+extend:{
+colors:{
+rosa:"#ff4d8d",
+rojo:"#ff1744",
+vino:"#7b1e3a",
+pastel:"#ffdce8",
+morado:"#8e44ff",
+cielo:"#fff7fb",
+dorado:"#ffd54f"
+},
+fontFamily:{
+cumple:['"Segoe UI"','sans-serif']
+}
+}
+}
+}
+</script>
+
+<style type="text/tailwindcss">
+
+@layer utilities{
+
+body{
+scroll-behavior:smooth;
+}
+
+.fondo{
+background:
+radial-gradient(#ffd6e7 2px,transparent 2px);
+background-size:24px 24px;
+}
+
+.led{
+animation:led 2s infinite alternate;
+}
+
+@keyframes led{
+
+0%{
+color:#ff4d8d;
+text-shadow:
+0 0 10px #ff4d8d,
+0 0 30px #ff4d8d,
+0 0 60px #ff4d8d;
+}
+
+25%{
+color:#ff0088;
+text-shadow:
+0 0 10px #ff0088,
+0 0 30px #ff0088,
+0 0 60px #ff0088;
+}
+
+50%{
+color:#9c27ff;
+text-shadow:
+0 0 10px #9c27ff,
+0 0 30px #9c27ff,
+0 0 60px #9c27ff;
+}
+
+75%{
+color:#00bfff;
+text-shadow:
+0 0 10px #00bfff,
+0 0 30px #00bfff,
+0 0 60px #00bfff;
+}
+
+100%{
+color:#ffd54f;
+text-shadow:
+0 0 10px #ffd54f,
+0 0 30px #ffd54f,
+0 0 60px #ffd54f;
+}
+
+}
+
+.latido{
+animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.06);
+}
+
+}
+
+.flotar{
+animation:flotar 5s ease-in-out infinite;
+}
+
+@keyframes flotar{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+.girar{
+animation:girar 45s linear infinite;
+}
+
+@keyframes girar{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+.tarjeta{
+@apply bg-white/70 backdrop-blur-2xl rounded-[4rem] shadow-[0_15px_70px_rgba(255,0,120,0.25)] border border-white/30;
+}
+
+.boton{
+@apply bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 text-white font-black rounded-full shadow-2xl hover:scale-110 transition-all duration-300;
+}
+
+.estrella{
+position:absolute;
+animation:caer linear infinite;
+}
+
+@keyframes caer{
+.globo{
+position:absolute;
+bottom:-150px;
+animation:subir linear infinite;
+opacity:0.9;
+}
+
+@keyframes subir{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-220vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+0%{
+transform:translateY(-20px);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+}
+.cartel{
+background:linear-gradient(135deg,#ff4d8d,#9c27ff,#ff1744);
+box-shadow:
+0 0 40px rgba(255,0,120,0.5),
+0 0 80px rgba(156,39,255,0.4);
+animation:flotar 4s ease-in-out infinite;
+}
+
+.brillo{
+text-shadow:
+0 0 10px #fff,
+0 0 20px #ff4d8d,
+0 0 40px #ff4d8d,
+0 0 80px #ff4d8d;
+}
+
+}
+.numero17{
+
+background:linear-gradient(
+135deg,
+#ff4d8d,
+#ff0088,
+#9c27ff,
+#00bfff,
+#ffd54f
+);
+
+background-size:400% 400%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:
+brillo17 8s ease infinite,
+latido 2s infinite;
+
+filter:
+drop-shadow(0 0 20px rgba(255,0,120,0.6))
+drop-shadow(0 0 50px rgba(156,39,255,0.5));
+
+}
+
+@keyframes brillo17{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.corazon17{
+
+position:absolute;
+font-size:40px;
+animation:flotar17 linear infinite;
+opacity:0.8;
+
+}
+
+@keyframes flotar17{
+
+0%{
+transform:
+translateY(0)
+scale(0.5)
+rotate(0deg);
+
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:
+translateY(-900px)
+scale(1.3)
+rotate(360deg);
+
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body class="bg-cielo fondo overflow-x-hidden font-cumple">
+
+<!-- ESTRELLAS -->
+<div id="estrellas"
+class="fixed inset-0 pointer-events-none z-10">
+</div>
+
+<!-- ====================================================== -->
+<!-- PANTALLA INICIO -->
+<!-- ====================================================== -->
+
+<section id="inicio"
+class="min-h-screen flex items-center justify-center p-10 relative overflow-hidden">
+
+<!-- FONDO -->
+<img
+src="https://i.imgur.com/y6XG6dD.jpg"
+class="absolute inset-0 w-full h-full object-cover opacity-30">
+
+<div class="absolute inset-0 bg-black/50"></div>
+
+<!-- CAJA -->
+<div class="relative z-50
+max-w-[1900px]
+w-full
+rounded-[5rem]
+bg-white/10
+backdrop-blur-2xl
+border border-white/20
+shadow-[0_20px_100px_rgba(255,0,120,0.5)]
+p-16">
+
+<!-- TITULO -->
+<h1 class="text-[clamp(5rem,10vw,12rem)]
+font-black
+text-center
+led
+mb-10">
+🎂 FELIZ CUMPLEAÑOS 🎂
+</h1>
+
+<p class="text-center text-white text-4xl max-w-6xl mx-auto leading-relaxed mb-16">
+💖 CON MUCHO CARIÑO PARA TI✨
+</p>
+
+<div class="grid xl:grid-cols-2 gap-20 items-center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- IZQUIERDA -->
+<div class="text-center">
+
+<div id="candado"
+class="text-[14rem] mb-10 latido">
+🔒
+</div>
+
+<div class="flex justify-center gap-6 mb-10">
+
+<div id="d1"
+class="w-32 h-36 bg-black/80 text-white rounded-[2rem] text-7xl font-black flex items-center justify-center border-[6px] border-pink-400 shadow-2xl">
+0
+</div>
+
+<div id="d2"
+class="w-32 h-36 bg-black/80 text-white rounded-[2rem] text-7xl font-black flex items-center justify-center border-[6px] border-pink-400 shadow-2xl">
+0
+</div>
+
+<div id="d3"
+class="w-32 h-36 bg-black/80 text-white rounded-[2rem] text-7xl font-black flex items-center justify-center border-[6px] border-pink-400 shadow-2xl">
+0
+</div>
+
+</div>
+
+<p class="text-white text-5xl mb-6">
+💖 Contraseña
+</p>
+
+<p class="text-8xl led font-black mb-12">
+258
+</p>
+
+<div class="grid grid-cols-3 gap-6 max-w-[650px] mx-auto">
+
+<button onclick="numero('1')" class="boton text-5xl py-6">1</button>
+<button onclick="numero('2')" class="boton text-5xl py-6">2</button>
+<button onclick="numero('3')" class="boton text-5xl py-6">3</button>
+
+<button onclick="numero('4')" class="boton text-5xl py-6">4</button>
+<button onclick="numero('5')" class="boton text-5xl py-6">5</button>
+<button onclick="numero('6')" class="boton text-5xl py-6">6</button>
+
+<button onclick="numero('7')" class="boton text-5xl py-6">7</button>
+<button onclick="numero('8')" class="boton text-5xl py-6">8</button>
+<button onclick="numero('9')" class="boton text-5xl py-6">9</button>
+
+</div>
+
+<div class="flex justify-center gap-8 mt-12">
+
+<button onclick="borrar()"
+class="bg-gray-700 text-white text-4xl px-14 py-5 rounded-full shadow-2xl hover:scale-110 transition-all">
+Borrar
+</button>
+
+<button onclick="entrar()"
+class="boton text-4xl px-16 py-5">
+Entrar 🎁
+</button>
+
+</div>
+
+</div>
+
+<!-- DERECHA -->
+<div class="text-center">
+
+<img
+
+class="w-full max-w-[100px] mx-auto rounded-[4rem] border-[10px] border-pink-300 shadow-[0_0_80px_rgba(255,0,120,0.6)] flotar">
+
+<h2 class="text-[clamp(4rem,8vw,8rem)]
+font-black
+led
+mt-10">
+ TE QUIERO </h2>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- PAGINA PRINCIPAL -->
+<!-- ====================================================== -->
+
+<div id="principal"
+class="hidden relative z-50">
+
+<!-- CONFETI -->
+<canvas id="confeti"
+class="fixed inset-0 w-full h-full pointer-events-none z-40">
+</canvas>
+
+<div class="max-w-[2100px] mx-auto p-10">
+
+<!-- HERO -->
+<section class="tarjeta p-24 mb-28 text-center relative overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-r from-pink-200/40 via-purple-200/30 to-blue-200/30"></div>
+
+<div class="relative z-20">
+
+<h1 class="text-[clamp(6rem,11vw,13rem)]
+font-black
+led
+mb-14">
+💖 KENETH 💖
+</h1>
+
+<p class="text-5xl text-gray-700 max-w-6xl mx-auto leading-relaxed mb-16">
+🎂 Feliz cumpleaños 🎂
+Espero que este día esté lleno de amor,
+felicidad, sonrisas y muchísimas sorpresas 💖✨
+</p>
+
+<div class="flex justify-center gap-10 text-8xl">
+
+<span class="latido">🎂</span>
+<span class="latido">🎉</span>
+<span class="latido">💖</span>
+<span class="latido">✨</span>
+<span class="latido">🎁</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MENU -->
+
+<!-- ====================================================== -->
+<!-- CORAZON -->
+<!-- ====================================================== -->
+
+<h2 class="text-[clamp(5rem,10vw,10rem)]
+text-center led font-black mb-24">
+</h2>
+
+<section id="favoritos"
+class="tarjeta p-24 mb-28 relative overflow-hidden text-center">
+
+<div class="absolute inset-0 bg-gradient-to-r from-pink-200/30 via-fuchsia-200/20 to-purple-200/30"></div>
+
+<div class="relative z-20">
+
+<h2 class="text-[clamp(6rem,10vw,11rem)]
+font-black led mb-20">
+</h2>
+<div class="cartel mx-auto max-w-[1400px] p-20 rounded-[4rem]">
+
+<h3 class="text-[clamp(4rem,8vw,8rem)]
+font-black text-white brillo">
+💖 ERES UNA GRANNNN PERSONA💖
+</h3>
+
+
+
+
+</div>
+
+</section>
+
+
+<!-- BABYMONSTER -->
+<section id="babymonster"
+class="tarjeta p-24 mb-28 relative overflow-hidden">
+
+<!-- IMAGEN DE FONDO -->
+<img
+src="https://tse3.mm.bing.net/th/id/OIP.ktRjRMk5ZnLEIW7eFEwt5gHaE-?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3"
+class="absolute inset-0 w-full h-full object-cover opacity-20">
+
+<div class="relative z-20">
+
+<!-- TITULO -->
+<h2 class="text-[clamp(6rem,11vw,12rem)]
+text-center
+led
+font-black
+mb-10">
+BABYMONSTER 🎤
+</h2>
+
+<img
+src="https://tse1.mm.bing.net/th/id/OIP.bb512XeU_VCXGDA_CdEQ4wHaD4?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3"
+class="w-full rounded-[4rem] border-[10px] border-pink-300 shadow-2xl mb-20">
+
+
+<!-- DESCRIPCIÓN -->
+<p class="text-4xl text-gray-700 max-w-5xl mx-auto leading-relaxed mb-16 text-center">
+🎧 Escucha tus canciones favoritas  de esas feas en especial la asa ,<br>
+haz click y se reproducen en YouTube 💖✨
+</p>
+
+<!-- GRID -->
+<div class="grid lg:grid-cols-3 gap-10">
+
+<!-- FOREVER -->
+<a href="https://www.youtube.com/results?search_query=babymonster+forever"
+target="_blank"
+class="group bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 rounded-[3rem] p-12 text-white shadow-2xl hover:scale-105 transition-all">
+
+<h3 class="text-5xl font-black mb-4">🎵 Forever</h3>
+<p class="text-2xl opacity-90">▶ Escuchar en YouTube</p>
+
+</a>
+
+<!-- SHEESH -->
+<a href="https://www.youtube.com/results?search_query=babymonster+sheesh"
+target="_blank"
+class="group bg-gradient-to-br from-fuchsia-500 via-purple-600 to-pink-500 rounded-[3rem] p-12 text-white shadow-2xl hover:scale-105 transition-all">
+
+<h3 class="text-5xl font-black mb-4">🎵 Sheesh</h3>
+<p class="text-2xl opacity-90">▶ Escuchar en YouTube</p>
+
+</a>
+
+<!-- CLICK CLACK -->
+<a href="https://www.youtube.com/results?search_query=babymonster+click+clack"
+target="_blank"
+class="group bg-gradient-to-br from-pink-600 via-rose-500 to-orange-500 rounded-[3rem] p-12 text-white shadow-2xl hover:scale-105 transition-all">
+
+<h3 class="text-5xl font-black mb-4">🎵 Click Clack</h3>
+<p class="text-2xl opacity-90">▶ Escuchar en YouTube</p>
+
+</a>
+
+<!-- CHOOM -->
+<a href="https://www.youtube.com/results?search_query=babymonster+choom"
+target="_blank"
+class="group bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-[3rem] p-12 text-white shadow-2xl hover:scale-105 transition-all">
+
+<h3 class="text-5xl font-black mb-4">🎵 Choom</h3>
+<p class="text-2xl opacity-90">▶ Escuchar en YouTube</p>
+
+</a>
+
+<!-- HOT SAUCE -->
+<a href="https://www.youtube.com/results?search_query=babymonster+hot+sauce"
+target="_blank"
+class="group bg-gradient-to-br from-red-500 via-pink-500 to-yellow-500 rounded-[3rem] p-12 text-white shadow-2xl hover:scale-105 transition-all">
+
+<h3 class="text-5xl font-black mb-4">🎵 Hot Sauce</h3>
+<p class="text-2xl opacity-90">▶ Escuchar en YouTube</p>
+
+</a>
+
+<!-- NUEVA CANCION -->
+<a href="https://www.youtube.com/results?search_query=babymonster+batter+up"
+target="_blank"
+class="group bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-[3rem] p-12 text-white shadow-2xl hover:scale-105 transition-all">
+
+<h3 class="text-5xl font-black mb-4">🎵 Batter Up</h3>
+<p class="text-2xl opacity-90">▶ Escuchar en YouTube</p>
+
+</a>
+
+</div>
+
+</div>
+</section>
+
+<!-- RECUERDOS -->
+
+
+
+
+
+<!-- RECUERDOS -->
+<section id="recuerdos"
+class="tarjeta p-24 mb-28 relative overflow-hidden text-center">
+
+<!-- FONDO -->
+<div class="absolute inset-0
+bg-gradient-to-br
+from-pink-100
+via-white
+to-fuchsia-100">
+</div>
+
+<div class="relative z-20">
+
+<h2 class="text-[clamp(4rem,8vw,8rem)]
+font-black
+led
+mb-16">
+✨ FELIZ ✨
+</h2>
+
+<!-- NUMERO -->
+<div class="relative flex justify-center items-center py-20">
+
+<div class="absolute
+w-[500px]
+h-[500px]
+bg-pink-400/20
+blur-[100px]
+rounded-full">
+</div>
+
+<h1 class="text-[clamp(14rem,30vw,28rem)]
+font-black
+tracking-tight
+bg-gradient-to-b
+from-pink-400
+via-fuchsia-500
+to-purple-600
+bg-clip-text
+text-transparent
+drop-shadow-[0_10px_35px_rgba(255,0,120,0.35)]
+select-none
+leading-none">
+
+17
+
+</h1>
+
+</div>
+
+<p class="text-3xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+
+ESPERO Y CUMPLAS MUUUUUUUUUCHOS MAS 🫶🏻
+</p>
+
+<div class="flex justify-center gap-6 mt-14 text-6xl">
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- PASTEL GIGANTE -->
+<!-- ====================================================== -->
+
+<section
+class="relative overflow-hidden rounded-[5rem] mb-28
+min-h-[1100px]
+flex items-center justify-center
+bg-gradient-to-br from-pink-200 via-rose-100 to-fuchsia-200">
+
+<!-- CHISPITAS -->
+<div id="sparkles"
+class="absolute inset-0 pointer-events-none overflow-hidden">
+</div>
+
+<!-- LUCES -->
+<div class="absolute top-0 left-0
+w-[600px] h-[600px]
+bg-pink-400/30
+blur-[140px]
+rounded-full">
+</div>
+
+<div class="absolute bottom-0 right-0
+w-[600px] h-[600px]
+bg-purple-400/30
+blur-[140px]
+rounded-full">
+</div>
+
+<!-- CONTENIDO -->
+<div class="relative z-20 text-center">
+
+<h2 class="text-[clamp(5rem,11vw,12rem)]
+font-black
+led
+mb-20">
+
+tu pastel🥹
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+<!-- PASTEL -->
+<div class="relative mx-auto w-[500px] h-[500px]">
+
+<!-- VELAS -->
+<div class="absolute top-[-80px] left-1/2 -translate-x-1/2 flex gap-10 z-30">
+
+<div class="flex flex-col items-center">
+<div class="w-8 h-14 bg-yellow-200 rounded-full animate-pulse shadow-[0_0_30px_gold]"></div>
+<div class="w-5 h-24 bg-pink-500 rounded-full"></div>
+</div>
+
+<div class="flex flex-col items-center">
+<div class="w-8 h-14 bg-yellow-200 rounded-full animate-pulse shadow-[0_0_30px_gold]"></div>
+<div class="w-5 h-24 bg-purple-500 rounded-full"></div>
+</div>
+
+<div class="flex flex-col items-center">
+<div class="w-8 h-14 bg-yellow-200 rounded-full animate-pulse shadow-[0_0_30px_gold]"></div>
+<div class="w-5 h-24 bg-fuchsia-500 rounded-full"></div>
+</div>
+
+</div>
+
+<!-- CAPA 1 -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2
+w-[500px] h-[180px]
+bg-gradient-to-r from-pink-400 to-fuchsia-500
+rounded-[4rem]
+shadow-2xl">
+</div>
+
+<!-- CAPA 2 -->
+<div class="absolute bottom-[130px] left-1/2 -translate-x-1/2
+w-[380px] h-[150px]
+bg-gradient-to-r from-rose-300 to-pink-400
+rounded-[4rem]
+shadow-2xl">
+</div>
+
+<!-- CAPA 3 -->
+<div class="absolute bottom-[240px] left-1/2 -translate-x-1/2
+w-[260px] h-[120px]
+bg-gradient-to-r from-fuchsia-300 to-purple-400
+rounded-[4rem]
+shadow-2xl">
+</div>
+
+<!-- TEXTO -->
+<div class="absolute inset-0 flex items-center justify-center">
+
+</div>
+
+</div>
+
+<!-- MENSAJE -->
+</div>
+
+</section>
+
+
+
+
+<!-- SORPRESA -->
+<section id="sorpresa"
+class="relative overflow-hidden rounded-[5rem] p-28 mb-28 shadow-[0_20px_80px_rgba(255,0,120,0.5)] bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600">
+
+<!-- LUCES DE FONDO -->
+<div class="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-pink-300/40 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-purple-300/40 blur-[120px] rounded-full"></div>
+
+<div class="text-center text-white relative z-20">
+
+<!-- TITULO -->
+<h2 class="text-[clamp(6rem,11vw,12rem)]
+font-black
+led
+mb-10">
+🎁 TOCA AQUÍ 🎁
+</h2>
+
+<p class="text-5xl leading-relaxed max-w-5xl mx-auto mb-14">
+
+
+</p>
+
+<!-- BOTÓN -->
+<button onclick="iniciarCuentaRegresiva()"
+class="bg-white text-pink-600 text-5xl font-black px-28 py-8 rounded-full shadow-2xl hover:scale-110 transition-all active:scale-95">
+INICIAR 
+</button>
+
+<!-- CUENTA REGRESIVA -->
+<div id="countdown" class="hidden mt-20">
+
+<h3 class="text-6xl font-black mb-10 led">
+ TU SORPRESA LO VERAS DESPUES DE </h3>
+
+<div id="tiempo"
+class="text-[clamp(4rem,8vw,9rem)] font-black tracking-widest
+bg-white/20 backdrop-blur-xl rounded-[3rem] py-10 px-16
+shadow-2xl border border-white/30">
+</div>
+
+</div>
+
+<!-- MENSAJE FINAL -->
+<div id="mensajeSorpresa"
+class="hidden mt-20 bg-white/20 backdrop-blur-2xl rounded-[4rem] p-20 border border-white/40 shadow-2xl">
+
+<div class="text-[10rem] mb-6 animate-bounce">
+🎉💖🎉
+</div>
+
+<h3 class="text-8xl font-black mb-10 led">
+¡SORPRESA!
+</h3>
+
+<p class="text-4xl leading-relaxed max-w-5xl mx-auto mb-10">
+Gracias por existir ✨<br>
+Espero que este cumpleaños sea inolvidable 🎂💖
+</p>
+
+<div class="text-[6rem]">
+💖🎂✨🎁💖
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+<script>
+
+let clave="";
+
+function numero(n){
+
+if(clave.length<3){
+
+clave+=n;
+actualizar();
+
+}
+
+}
+
+function borrar(){
+
+clave=clave.slice(0,-1);
+actualizar();
+
+}
+
+function actualizar(){
+
+document.getElementById("d1").textContent=clave[0]||"0";
+document.getElementById("d2").textContent=clave[1]||"0";
+document.getElementById("d3").textContent=clave[2]||"0";
+
+}
+
+function entrar(){
+
+if(clave==="258"){
+
+document.getElementById("candado").textContent="🔓";
+
+setTimeout(()=>{
+
+document.getElementById("inicio").style.display="none";
+
+document.getElementById("principal")
+.classList.remove("hidden");
+
+iniciarConfeti();
+
+},700);
+
+}else{
+
+alert("❌ Contraseña incorrecta");
+
+}
+
+}
+
+function ir(id){
+
+document.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function mostrarSorpresa(){
+
+document.getElementById("mensajeSorpresa")
+.classList.remove("hidden");
+
+}
+
+function iniciarConfeti(){
+
+const canvas=document.getElementById("confeti");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+const colores=[
+"#ff4d8d",
+"#ff1744",
+"#9c27ff",
+"#ffd54f",
+"#00bfff"
+];
+
+const particulas=[];
+
+for(let i=0;i<350;i++){
+
+particulas.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height-canvas.height,
+r:Math.random()*6+2,
+d:Math.random()*200,
+color:colores[Math.floor(Math.random()*colores.length)],
+tilt:Math.floor(Math.random()*10)-10,
+tiltAngleIncremental:(Math.random()*0.07)+0.05,
+tiltAngle:0
+
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particulas.forEach((p)=>{
+
+ctx.beginPath();
+
+ctx.lineWidth=p.r;
+
+ctx.strokeStyle=p.color;
+
+ctx.moveTo(p.x+p.tilt+(p.r/2),p.y);
+
+ctx.lineTo(p.x+p.tilt,p.y+p.tilt+(p.r/2));
+
+ctx.stroke();
+
+});
+
+update();
+
+}
+
+function update(){
+
+particulas.forEach((p,index)=>{
+
+p.tiltAngle+=p.tiltAngleIncremental;
+
+p.y+=(Math.cos(p.d)+3+p.r/2)/2;
+
+p.x+=Math.sin(p.d);
+
+p.tilt=Math.sin(p.tiltAngle)*15;
+
+if(p.y>canvas.height){
+
+particulas[index]={
+
+x:Math.random()*canvas.width,
+y:-20,
+r:p.r,
+d:p.d,
+color:p.color,
+tilt:p.tilt,
+tiltAngleIncremental:p.tiltAngleIncremental,
+tiltAngle:p.tiltAngle
+
+};
+
+}
+
+});
+
+}
+
+setInterval(draw,20);
+
+}
+
+function estrellas(){
+
+const cont=document.getElementById("estrellas");
+
+setInterval(()=>{
+
+const e=document.createElement("div");
+
+e.classList.add("estrella");
+
+e.innerHTML="";
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.fontSize=(Math.random()*30+15)+"px";
+
+e.style.animationDuration=(Math.random()*4+3)+"s";
+
+cont.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},6000);
+
+},300);
+
+}
+
+estrellas();
+
+["c1","c2","c3","c4"].forEach(id=>{
+
+const area=document.getElementById(id);
+
+area.value=localStorage.getItem(id)||"";
+
+area.addEventListener("input",()=>{
+
+localStorage.setItem(id,area.value);
+
+});
+
+});
+function lluviaTexto(){
+
+const cont=document.getElementById("lluvia");
+
+setInterval(()=>{
+
+const t=document.createElement("div");
+
+t.innerText="FELIZ CUMPLEAÑOS KENETH 💖🎂";
+
+t.style.position="absolute";
+t.style.left=Math.random()*100+"%";
+t.style.top="-50px";
+t.style.fontSize=(Math.random()*20+20)+"px";
+t.style.fontWeight="900";
+t.style.color=["#ff4d8d","#9c27ff","#00bfff","#ffd54f"][Math.floor(Math.random()*4)];
+t.style.whiteSpace="nowrap";
+t.style.opacity="0.9";
+t.style.animation="caer 6s linear forwards";
+
+cont.appendChild(t);
+
+setTimeout(()=>t.remove(),6000);
+
+},200);
+
+}
+
+lluviaTexto();
+</script>
+
+</body>
+</html>           
